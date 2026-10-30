@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRP - living COVER</title>
+    <!-- Google Font: Lexend -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .orbL {
+            font-family: 'Lexend', sans-serif !important;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            background: #ffffff;
+            width: 100% !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+        }
+        .orbLt {
+            padding-left: 10px;
+            line-height: 50px;
+            height: 50px;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box !important;
+        }
+        .abc-bar {
+            background: #00cc98;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 !important;
+            padding: 0 !important;
+            list-style: none;
+            border-bottom: 1px solid #d6d6d6;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .abc-tab {
+            flex: 1 1 auto;
+            height: 32px;
+            text-align: center;
+            font-size: 11px;
+            border-right: 1px solid #d6d6d6;
+            display: inline-block;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+        }
+        .abc-tab:last-child {
+            border-right: none;
+        }
+        .abc-tab a {
+            display: block;
+            line-height: 32px;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .abc-tab:hover {
+            background: #000000;
+        }
+        .abc-tab:hover a {
+            color: #ffffff;
+        }
+        .video-content-area {
+            position: relative;
+            width: 100% !important;
+            padding-bottom: 56.25%;
+            background: #000000;
+            overflow: hidden;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+        }
+        .start-cover, .video-content-area iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+        }
+        .start-cover {
+            object-fit: cover !important;
+            display: block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbL">
+    <div class="orbLt">HRP - living COVER...</div>
+
+    <!-- Alphabet Leiste mit verknüpften Videos -->
+    <ul class="abc-bar">
+        <li class="abc-tab"><a onclick="loadVideo('WDOHbshaUGA')">A</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('G9bCNTqtSow')">B</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('c-X4MdRZwK4')">C</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('cMC2Ud6Jatc')">D</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('aDQkwrEJOYs')">E</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('8WBozD_CyPc')">F</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('yBAaeRKIijQ')">G</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('r5zwrk9mQvk')">H</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('PqKt6qsF16k')">I</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('HJj4T7TQFbo')">J</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('dLQauNMZ4JQ')">K</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('glplDV8M3is')">L</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('uAwavyF54DY')">M</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('SGfQK-vNl3g')">N</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('rofsirrbD8E')">O</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('Z4a5Wc96gzQ')">P</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('5bXyF8ETaZo')">Q</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('bdKlvvVXIDA')">R</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('_ywBEHHrd1E')">S</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('35QVqIYte78')">T</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('4tuWOl4llds')">U</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('kXkzPsytknY')">V</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('NftFNM6RYiQ')">W</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('jBdzYLS4Bsc')">X</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('kaznZABbzo8')">Y</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('_mykH07WNiQ')">Z</a></li>
+    </ul>
+
+    <!-- Videobereich mit Startbild -->
+    <div class="video-content-area" id="player-container">
+        <img src="https://i.ibb.co/6Rw3y8RG/000-Living-Cover-quer.jpg" alt="Start Cover" class="start-cover" onclick="loadVideo('WDOHbshaUGA')">
+    </div>
+</div>
+
+<script>
+    function loadVideo(videoId) {
+        var container = document.getElementById('player-container');
+        container.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&origin=' + window.location.origin + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+</script>
+
+</body>
+</html>
