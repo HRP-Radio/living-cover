@@ -27,13 +27,13 @@
             margin: 0 !important;
             padding: 0 !important;
             list-style: none;
-            border-bottom: 3px solid #000000; /* Schwarzer Abstand unten nach A-Z */
+            border-bottom: 3px solid #000000;
             width: 100% !important;
             box-sizing: border-box !important;
         }
         .abc-tab {
             flex: 1 1 auto;
-            height: 48px; /* Höhere Tabs für einen fetteren, sauberen Look */
+            height: 48px;
             text-align: center;
             font-size: 16px;
             border-right: 1px solid #d6d6d6;
@@ -46,7 +46,7 @@
         }
         .abc-tab a {
             display: block;
-            line-height: 48px; /* Zentriert die Buchstaben perfekt in der neuen Höhe */
+            line-height: 48px;
             color: #000000;
             font-weight: bold;
             text-decoration: none;
@@ -70,7 +70,7 @@
             margin: 0 !important;
             box-sizing: border-box !important;
         }
-        .start-cover, .video-content-area iframe {
+        .start-cover, .video-content-area iframe, .video-content-area div {
             position: absolute;
             top: 0;
             left: 0;
@@ -82,13 +82,14 @@
             object-fit: cover !important;
             display: block;
             cursor: pointer;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
 
 <div class="orbL">
-    <!-- Alphabet Leiste ohne Überschrift, mit vergrößerten Tabs und Abschluss -->
+    <!-- Alphabet Leiste -->
     <ul class="abc-bar">
         <li class="abc-tab"><a onclick="loadVideo('TXBDHSPFsrc')">A</a></li>
         <li class="abc-tab"><a onclick="loadVideo('ZR99vtQMdoM')">B</a></li>
@@ -120,14 +121,40 @@
 
     <!-- Videobereich im Hochformat mit Startbild -->
     <div class="video-content-area" id="player-container">
-        <img src="https://i.ibb.co/d0rLr65t/living-COVER.jpg" alt="Start Cover" class="start-cover" onclick="loadVideo('TXBDHSPFsrc')">
+        <img src="https://i.ibb.co/d0rLr65t/living-COVER.jpg" alt="Start Cover" class="start-cover" id="start-cover-img" onclick="loadVideo('TXBDHSPFsrc')">
     </div>
 </div>
 
+<!-- YouTube IFrame API Script -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
+    var player;
+
     function loadVideo(videoId) {
         var container = document.getElementById('player-container');
-        container.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&origin=' + window.location.origin + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        
+        // Falls der Player noch nicht existiert, erstellen wir ihn über die offizielle YouTube API
+        if (!player) {
+            container.innerHTML = '<div id="yt-player"></div>';
+            player = new YT.Player('yt-player', {
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'origin': window.location.origin
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.setPlaybackQuality('hd1080'); // Erzwingt direkt Full HD bei Start
+                        event.target.playVideo();
+                    }
+                }
+            });
+        } else {
+            // Wenn der Player schon da ist, einfach das neue Video laden und HD erzwingen
+            player.loadVideoById(videoId);
+            player.setPlaybackQuality('hd1080');
+        }
     }
 </script>
 
