@@ -20,17 +20,6 @@
             overflow: hidden !important;
             box-sizing: border-box !important;
         }
-        .orbLt {
-            padding-left: 10px;
-            line-height: 50px;
-            height: 50px;
-            background-color: #000000;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box !important;
-        }
         .abc-bar {
             background: #00cc98;
             display: flex;
@@ -38,15 +27,15 @@
             margin: 0 !important;
             padding: 0 !important;
             list-style: none;
-            border-bottom: 1px solid #d6d6d6;
+            border-bottom: 3px solid #000000; /* Schwarzer Abstand unten nach A-Z */
             width: 100% !important;
             box-sizing: border-box !important;
         }
         .abc-tab {
             flex: 1 1 auto;
-            height: 38px; /* Etwas höher gemacht für größere Buchstaben */
+            height: 48px; /* Höhere Tabs für einen fetteren, sauberen Look */
             text-align: center;
-            font-size: 16px; /* Hier wurde die Schriftgröße der Buchstaben erhöht (vorher 11px) */
+            font-size: 16px;
             border-right: 1px solid #d6d6d6;
             display: inline-block;
             margin: 0 !important;
@@ -57,7 +46,7 @@
         }
         .abc-tab a {
             display: block;
-            line-height: 38px; /* An die neue Tab-Höhe angepasst */
+            line-height: 48px; /* Zentriert die Buchstaben perfekt in der neuen Höhe */
             color: #000000;
             font-weight: bold;
             text-decoration: none;
@@ -99,9 +88,7 @@
 <body>
 
 <div class="orbL">
-    <div class="orbLt">HRP - living COVER...</div>
-
-    <!-- Alphabet Leiste mit vergrößerten Buchstaben -->
+    <!-- Alphabet Leiste ohne Überschrift, mit vergrößerten Tabs und Abschluss -->
     <ul class="abc-bar">
         <li class="abc-tab"><a onclick="loadVideo('TXBDHSPFsrc')">A</a></li>
         <li class="abc-tab"><a onclick="loadVideo('ZR99vtQMdoM')">B</a></li>
@@ -122,7 +109,7 @@
         <li class="abc-tab"><a onclick="loadVideo('uQhvSMKV8NU')">Q</a></li>
         <li class="abc-tab"><a onclick="loadVideo('0yGbvtbnv-Q')">R</a></li>
         <li class="abc-tab"><a onclick="loadVideo('8bj_w3v2ovM')">S</a></li>
-        <li class="abc-tab"><a onclick="loadVideo('bdXjGXr__gg'))">T</a></li>
+        <li class="abc-tab"><a onclick="loadVideo('bdXjGXr__gg')">T</a></li>
         <li class="abc-tab"><a onclick="loadVideo('tZv8tj6w-mg')">U</a></li>
         <li class="abc-tab"><a onclick="loadVideo('iSNKUVK7RhM')">V</a></li>
         <li class="abc-tab"><a onclick="loadVideo('i8bjz0i25vU')">W</a></li>
@@ -131,9 +118,9 @@
         <li class="abc-tab"><a onclick="loadVideo('1mi76GZwEbU')">Z</a></li>
     </ul>
 
-    <!-- Videobereich im Hochformat mit neuem Startbild -->
+    <!-- Videobereich im Hochformat mit Startbild -->
     <div class="video-content-area" id="player-container">
-        <img src="https://i.ibb.co/d0rLr65t/living-COVER.jpg" alt="Start Cover" class="start-cover" onclick="loadVideo('WDOHbshaUGA')">
+        <img src="https://i.ibb.co/d0rLr65t/living-COVER.jpg" alt="Start Cover" class="start-cover" onclick="loadVideo('TXBDHSPFsrc')">
     </div>
 </div>
 
